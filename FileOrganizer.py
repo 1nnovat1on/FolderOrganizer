@@ -80,3 +80,4 @@ if __name__=="__main__":
 #     if errorBoolean == True:
 #         FileUtils.popupmsg("Ding! Directory Organized.", "Directory Organizinator")
 #         exit()
+#         exit()
