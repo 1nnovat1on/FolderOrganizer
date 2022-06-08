@@ -18,17 +18,20 @@ class FileUtils:
         files = os.listdir(path)
         if not files: print('this path has no files');return
         for file in files:
-            filename,ext = os.path.splitext(file) # name of the file followed by .[ext]
-            ext = ext[1:] # remove the leading period
-            # print(filename, ext)
-            currentFilePath = f'{path}/{file}'
-            destinationFilePath = f'{path}/{ext}/{file}'
+            try:
+                filename,ext = os.path.splitext(file) # name of the file followed by .[ext]
+                ext = ext[1:] # remove the leading period
+                # print(filename, ext)
+                currentFilePath = f'{path}/{file}'
+                destinationFilePath = f'{path}/{ext}/{file}'
 
-            # we need to create that folder first and then move it inside
-            if not os.path.exists(f'{path}/{ext}'):
-                print(f'{path}/{ext} does not exist, so making a directory for it now')
-                os.makedirs(f'{path}/{ext}')
-            shutil.move(currentFilePath, destinationFilePath)
+                # we need to create that folder first and then move it inside
+                if not os.path.exists(f'{path}/{ext}'):
+                    print(f'{path}/{ext} does not exist, so making a directory for it now')
+                    os.makedirs(f'{path}/{ext}')
+                shutil.move(currentFilePath, destinationFilePath)
+            except Exception as e:
+                print(e)
 
     def selectDir():
 
@@ -59,7 +62,7 @@ def main():
     errorBoolean = True
     FileUtils.popupmsg("Select Directory to organize into file folders.", "Directory Organizinator")
     directory = FileUtils.selectDir()
-    if directory == '':
+    if directory == '' or directory is None:
         FileUtils.popupmsg("No Directory Selected.", "Directory Organizinator")
         exit()
     FileUtils.organizeFilesIntoFolders(directory)
@@ -77,9 +80,4 @@ if __name__=="__main__":
 #     if errorBoolean == True:
 #         FileUtils.popupmsg("Ding! Directory Organized.", "Directory Organizinator")
 #         exit()
-      
-
-
-
-
-
+#         exit()
