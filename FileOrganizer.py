@@ -70,14 +70,4 @@ def main():
 
 if __name__=="__main__":
     main()
-# try:
-#     FileUtils.organizeFilesIntoFolders(directory)
-# except Exception as e:
-#         FileUtils.popupmsg("Uh oh! Error: " + e, "Directory Organizinator")
-#         errorBoolean = False
-        
-# finally:
-#     if errorBoolean == True:
-#         FileUtils.popupmsg("Ding! Directory Organized.", "Directory Organizinator")
-#         exit()
-#         exit()
+
