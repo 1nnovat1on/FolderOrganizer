@@ -58,7 +58,7 @@ class FileUtils:
         root.mainloop()
     
 def main():
-
+    print("Colin Jackson | 9-15-2022")
     errorBoolean = True
     FileUtils.popupmsg("Select Directory to organize into file folders.", "Directory Organizinator")
     directory = FileUtils.selectDir()
@@ -66,8 +66,9 @@ def main():
         FileUtils.popupmsg("No Directory Selected.", "Directory Organizinator")
         exit()
     FileUtils.organizeFilesIntoFolders(directory)
+    print("Ding! Close this window or press 'Okay'.")
     FileUtils.popupmsg("Ding! Directory Organized.", "Directory Organizinator")
+    
 
 if __name__=="__main__":
     main()
-
