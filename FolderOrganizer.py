@@ -56,7 +56,7 @@ class FileUtils:
         root.mainloop()
     
 def main():
-    print("Colin Jackson | 9-15-2022 | Abstergo Industries")
+    print("Colin Jackson | 9-15-2022 | Abstergo LLC")
     errorBoolean = True
     FileUtils.popupmsg("Select Directory to organize into file folders.", "Directory Organizinator")
     directory = FileUtils.selectDir()
