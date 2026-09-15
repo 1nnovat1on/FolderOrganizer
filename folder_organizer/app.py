@@ -9,6 +9,10 @@ from tkinter import filedialog, messagebox, ttk
 from .core import build_preview, organize_preview, undo_last_run
 
 
+def completion_message(moved_count: int) -> str:
+    return f"Ding! Complete — organized {moved_count} file(s). Use Undo Last Run to restore them."
+
+
 class FolderOrganizerApp(ttk.Frame):
     def __init__(self, master: tk.Tk) -> None:
         super().__init__(master, padding=16)
@@ -25,7 +29,7 @@ class FolderOrganizerApp(ttk.Frame):
         toolbar = ttk.Frame(self)
         toolbar.pack(fill=tk.X)
         ttk.Button(toolbar, text="Choose Folder…", command=self.choose_folder).pack(side=tk.LEFT)
-        self.organize_button = ttk.Button(toolbar, text="Organize Preview", command=self.organize)
+        self.organize_button = ttk.Button(toolbar, text="Organize", command=self.organize)
         self.organize_button.pack(side=tk.LEFT, padx=(8, 0))
         self.undo_button = ttk.Button(toolbar, text="Undo Last Run", command=self.undo)
         self.undo_button.pack(side=tk.LEFT, padx=(8, 0))
@@ -88,9 +92,7 @@ class FolderOrganizerApp(ttk.Frame):
             self._show_error(f"Organization stopped: {error}")
             return
         self.show_preview()
-        self.status.set(
-            f"Moved {len(result.moves)} file(s). Use Undo Last Run to restore them."
-        )
+        self.status.set(completion_message(len(result.moves)))
 
     def undo(self) -> None:
         if self.folder is None:

@@ -16,7 +16,7 @@ A local-only Windows desktop utility for organizing **visible, top-level regular
 1. Run `python launcher.py`, or build the Windows executable as described below.
 2. Choose a folder.
 3. Review the extension-grouped preview.
-4. Select **Organize Preview** and confirm the move.
+4. Select **Organize**, confirm the move, and look for **“Ding! Complete”** with the moved-file count.
 5. To revert the most recent completed run for that folder, select **Undo Last Run** and confirm.
 
 ## Build a Windows executable
