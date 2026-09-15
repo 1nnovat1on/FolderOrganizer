@@ -8,6 +8,8 @@ from tkinter import filedialog, messagebox, ttk
 
 from .core import build_preview, organize_preview, undo_last_run
 
+WINDOW_TITLE = "Abstergo LLC Folder Organizer"
+
 
 def completion_message(moved_count: int) -> str:
     return f"Ding! Complete — organized {moved_count} file(s). Use Undo Last Run to restore them."
@@ -22,7 +24,7 @@ class FolderOrganizerApp(ttk.Frame):
         self._build()
 
     def _build(self) -> None:
-        self.master.title("FolderOrganizer")
+        self.master.title(WINDOW_TITLE)
         self.master.minsize(640, 430)
         self.pack(fill=tk.BOTH, expand=True)
 
